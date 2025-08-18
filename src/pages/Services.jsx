@@ -1,88 +1,10 @@
 import ApproachSection from '../components/ApproachSection'
 import BannerSection from '../components/BannerSection'
 import { HashLink } from 'react-router-hash-link';
+import { services, treatment } from '../components/staticData';
 
 const Services = () => {
-    const services = [
-        {
-            icon: '/icons/Anxiety_Disorders.svg',
-            title: "Anxiety Disorders",
-            description: "Including generalized anxiety disorder, panic attacks, and \n social anxiety.",
-        },
-        {
-            icon: '/icons/Depression.svg',
-            title: "Depression",
-            description: "From mild to severe depressive episodes, including treatment-resistant depression.",
-        },
-        {
-            icon: '/icons/Attention_Deficit_Hyperactivity_Disorder_(ADHD).svg',
-            title: "Attention Deficit Hyperactivity \n Disorder (ADHD)",
-            description: "Addressing attention issues, impulsivity, and \n hyperactivity in children, teens, and adults.",
-        },
-        {
-            icon: '/icons/autism_spectrum.svg',
-            title: "Autism Spectrum Disorders & Comorbid \n Psychiatric Conditions",
-            description: "Providing tailored interventions to enhance \n communication, social skills, and daily functioning.",
-        },
-        {
-            icon: '/icons/Sleep_Disorders.svg',
-            title: "Sleep Disorders",
-            description: "Focused on improving sleep quality and addressing \n issues like insomnia and circadian rhythm disorders.",
-        },
-        {
-            icon: '/icons/development_disorder.svg',
-            title: "Developmental Disorders",
-            description: "Special focus on conditions that affect children and adolescents, \n impacting their learning, behavior, and social interactions.",
-        },
-    ];
 
-    const treatment = [
-        {
-            title: "Medication Management",
-            description: "Carefully considered pharmacological treatment to manage and alleviate symptoms.",
-            image: "/assets/medication-management.webp",
-        },
-        {
-            title: "Plant based and herbal medicines",
-            description: "Supplements and vitamins that support mental health, often used alongside other treatments.",
-            image: "/assets/plant-based-and-herbal-medicines.webp",
-        },
-        {
-            title: "Ayurveda",
-            description: "Balancing your body and mind through diet, herbs, and relaxation techniques like yoga and meditation. It's about creating harmony inside to improve your overall health and mental state.",
-            image: "/assets/ayurevda.webp",
-        },
-        {
-            title: "Cognitive Behavioral Therapy (CBT)",
-            description: "A structured, practical therapy that helps patients identify and change destructive thought patterns.",
-            image: "/assets/cognitive-behavioral-therapy.webp",
-        },
-        {
-            title: "Interpersonal Therapy (IPT)",
-            description: "A short-term supportive therapy focusing on improving interpersonal relationships and social functioning.",
-            image: "/assets/interpersonal-therapy.webp",
-        },
-        {
-            title: "Family Therapy",
-            description: "Involves family members in the treatment process to improve communication and resolve conflicts.",
-            image: "/assets/family-therapy.webp",
-        },
-        {
-            title: "Autism Assessments & \n Integrated Treatment",
-            description: "Comprehensive evaluations followed by a combination of medical, behavioral, and educational interventions.",
-            image: "/assets/autism-assessments-integrated-treatment.webp",
-        },
-        {
-            title: "Parenting Resources",
-            description: "Guidance and support for parents dealing with children's mental health issues.",
-            image: "/assets/parenting-resources.webp",
-        },
-        {
-            title: "Lifestyle Modifications",
-            description: "Recommendations on exercise, sleep habits, and nutrition to improve overall health.",
-            image: "/assets/lifestyle-modifications.webp",
-        },
-    ];
 
     return (
         <>

@@ -6,6 +6,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { HashLink } from 'react-router-hash-link';
+import { publications, slides } from '../components/staticData';
 
 const AboutUs = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -20,52 +21,6 @@ const AboutUs = () => {
         "Licensed Medical Practitioner in California",
         "Executive Program in Artificial Intelligence, MIT",
         "Certificate in Integrative Psychiatry, Dream Psychiatry Academy"
-    ];
-
-    const publications = [
-        {
-            title: "An Update on Pharmacotherapy of Autism Spectrum Disorder in Children and Adolescents",
-            url: "https://www.tandfonline.com/doi/abs/10.1080/09540261.2018.1458706",
-            authors: "Ritu Goel, Ji Su Hong, Robert L. Findling & Na Young Ji. International Review of Psychiatry (2018). ",
-        },
-        {
-            title: "The Delirious Substance Abuser",
-            url: "https://cdn.mdedge.com/files/s3fs-public/Document/September-2017/1101CP_Cases.pdf",
-            authors: " Leo RJ, Goel Ritu. Current Psychiatry (2012).",
-        },
-        {
-            title: "Postgraduate psychiatric training and education in the UK",
-            url: 'https://www.cambridge.org/core/journals/advances-in-psychiatric-treatment/article/postgraduate-psychiatric-training-and-education-in-the-uk-a-search-for-evidence/E17D42C597C4D902AB63C74E0E919833',
-            authors: "Chaturvedi SK, Goel Ritu, Bhugra D.:  A search for evidence. Advances in Psychiatric Treatment (2007).",
-        },
-    ];
-
-    const slides = [
-        {
-            image: "/assets/slider_1.webp",
-            title: "More Than a ",
-            highlight: "Psychiatrist",
-        },
-        {
-            image: "/assets/slider_2.webp",
-            title: "Healing Through ",
-            highlight: "Connection",
-        },
-        {
-            image: "/assets/slider_3.webp",
-            title: "Empowering Your ",
-            highlight: "Mind",
-        },
-        {
-            image: "/assets/slider_4.webp",
-            title: "Empowering Your ",
-            highlight: "Mind",
-        },
-        {
-            image: "/assets/slider_5.webp",
-            title: "Empowering Your ",
-            highlight: "Mind",
-        },
     ];
 
     const settings = {
@@ -180,7 +135,7 @@ const AboutUs = () => {
                         </h2>
 
                         <Slider ref={sliderRef} {...settings}>
-                            {slides.map((slide, index) => (
+                            {slides?.map((slide, index) => (
                                 <img key={index} src={slide?.image} alt={`Slide_${index + 1}`}
                                     className="w-auto rounded-[30px]"
                                 />
@@ -299,7 +254,7 @@ const AboutUs = () => {
 
                             <HashLink smooth to='/services#serv-appont'>
                                 <button className='py-3.5 px-6 inter_medium rounded-[30px] text-black bg-white 
-                                    hover:!text-[#0a58ca] cursor-pointer' 
+                                    hover:!text-[#0a58ca] cursor-pointer'
                                 >
                                     Learn More About My Approach
                                 </button>

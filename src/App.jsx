@@ -16,6 +16,9 @@ import TermsOfUse from './pages/TermsOfUse';
 import AcceptablePolicy from './pages/AcceptablePolicy';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import MedicalDisclaimer from './pages/MedicalDisclaimer';
+import BlogDetails from './components/BlogDetails';
+import PressMediaDetails from './components/PressMediaDetails';
+import EventsDetails from './components/EventsDetails';
 import './App.css';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
@@ -30,7 +33,12 @@ const App = () => {
         '/acceptable-use-policy', '/privacy-policy', '/medical-disclaimer',
     ];
 
-    const isNotFoundPage = !allRoutes.includes(location.pathname);
+    const isBlogDetailsPage = location.pathname.startsWith('/blog/');
+    const isPressMediaDetailsPage = location.pathname.startsWith('/press_media/');
+    const isEventsDetailsPage = location.pathname.startsWith('/events/');
+    const isNotFoundPage = !(allRoutes.includes(location.pathname) || isBlogDetailsPage
+        || isPressMediaDetailsPage || isEventsDetailsPage
+    )
 
     useEffect(() => {
         Aos.init({
@@ -65,9 +73,12 @@ const App = () => {
                 <Route path='/about' element={<AboutUs />} />
                 <Route path='/services' element={<Services />} />
                 <Route path='/blog' element={<Blog />} />
+                <Route path="/blog/:name" element={<BlogDetails />} />
                 <Route path='/press_media' element={<PressMedia />} />
+                <Route path='/press_media/:id' element={<PressMediaDetails />} />
                 <Route path='/resources' element={<Resources />} />
                 <Route path='/events' element={<Events />} />
+                <Route path='/events/:name' element={<EventsDetails />} />
                 <Route path='/faqs' element={<FAQ />} />
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/terms-of-use' element={<TermsOfUse />} />

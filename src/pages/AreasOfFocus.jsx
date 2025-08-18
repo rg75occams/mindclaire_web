@@ -1,27 +1,5 @@
 import { HashLink } from "react-router-hash-link";
-
-const focusAreas = [
-    {
-        title: "Children 6-12 yrs",
-        description: "Are your 6-12 yr old children no longer playing with friends, isolating in their room or struggling with irritability and constant bursts of anger that is affecting your family dynamic, their relationships, and performance at school?",
-        image: "/assets/children-6-12-yrs.webp",
-    },
-    {
-        title: "Teens",
-        description: "Are you a teen not performing well at school or skipping class, getting suspended or on the verge of expulsion due to impulsive behaviors constantly fidgeting and agitated, outbursts, etc?",
-        image: "/assets/teens.webp",
-    },
-    {
-        title: "Young adults",
-        description: "Are you Struggling to adapt with adulthood - time management, money management, needs support and direction, mastering life skills so they can be successful in the future?",
-        image: "/assets/young-adults.webp",
-    },
-    {
-        title: "Parents/ Guardian",
-        description: "Are you a parent at a loss for how to help your child navigate intense emotions and challenging behaviors, or wanting to see them thrive?",
-        image: "/assets/3.webp",
-    },
-];
+import { focusAreas } from "../components/staticData";
 
 const AreasOfFocus = () => {
     return (
