@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter-Light.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Inter-Medium';
+    src: url('/fonts/Inter-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Inter-SemiBold';
+    src: url('/fonts/Inter-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Ringift';
+    src: url('/fonts/Ringift.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: inter-semi-bold;
+    src: url(../fonts/Inter-SemiBold.ttf)
+}
+
+.ringift {
+    font-family: Ringift;
+}
+
+.inter {
+    font-family: Inter;
+}
+
+.inter_medium {
+    font-family: Inter-Medium;
+}
+
+.inter_semibold {
+    font-family: Inter-SemiBold;
+}
+
+.featured-slider .slick-dots li .dot-wrapper {
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slick-dots li {
+    height: 9px !important;
+}
+
+.slick-dots {
+    bottom: -30px !important;
+}
+
+.featured-slider .slick-dots li .dot {
+    background-color: #d1d5db;
+    width: 9px;
+    height: 9px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.featured-slider .slick-dots li.slick-active .dot {
+    background-color: #984AD7;
+    width: 25px;
+    height: 10px;
+    border-radius: 5px;
+}
+
+.custom-slider .slick-list {
+  border-radius: 30px;
+  overflow: hidden;
+}

@@ -1,0 +1,39 @@
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #8a2be2;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8a2be2;
+}
+
+.linear-text-gradient {
+    background: linear-gradient(90deg, #8a2be2 0%, #1758A8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.text-black {
+    color: #212529 !important
+}
+
+input:focus, textarea:focus {
+    animation: 3s ease-in-out;
+}
