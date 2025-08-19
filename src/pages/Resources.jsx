@@ -1,10 +1,17 @@
 import { Link } from 'react-router-dom'
 import BannerSection from '../components/BannerSection'
 import { caregivers, patients, sections } from '../components/staticData'
+import { Helmet } from 'react-helmet-async'
 
 const Resources = () => {
     return (
         <>
+            <Helmet>
+                <title>Mental Wellness Resources for Parents, Caregivers & Patients | Mindclaire</title>
+                <meta name="description" content="Self-Care Toolkit for Mental Wellness, Medication & Therapy Guide, Mindfulness & Relaxation Techniques, Autism Resources, ADHD Resources, Sleep & Wellness Resources at Mindclaire" />
+                <meta name="keywords" content="" />
+            </Helmet>
+
             <BannerSection image={'/assets/resource_banner.webp'} title={'Resource'} fontSize={'text-[50px]'}
                 className={'bg-[70%]'}
             />
@@ -36,7 +43,7 @@ const Resources = () => {
                             <div className="border border-[#A3A3A3] rounded-2xl p-10 text-center w-full">
                                 <img src="/assets/linkedin1.svg" alt="LinkedIn" className="mb-6 h-[40px]" />
 
-                                <Link to='https://www.linkedin.com/company/mindclaire/' target="_blank" 
+                                <Link to='https://www.linkedin.com/company/mindclaire/' target="_blank"
                                     className='mt-4 ml-0.5 text-[#3c0a6d] flex gap-1 
                                     inter hover:text-[#0a58ca] items-center inter'
                                 >
@@ -191,7 +198,7 @@ const Resources = () => {
                     </div>
 
                     <h1 className="lg:text-3xl text-2xl inter text-black pt-10">
-                        Explore these resources and take the next step in your mental wellness journey. If you need 
+                        Explore these resources and take the next step in your mental wellness journey. If you need
                         personalized guidance, our team at MindClaire is here to help.
                     </h1>
                 </div>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import BannerSection from "../components/BannerSection"
 import { Link } from "react-router-dom";
 import { blogs } from "../components/staticData";
+import { Helmet } from "react-helmet-async";
 
 const Blog = () => {
     const tabs = ["All", "ADHD", "Autism", "Nutrition"];
@@ -14,6 +15,12 @@ const Blog = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Blogs on Mental health & Integrated treatment</title>
+                <meta name="description" content=" Insights and guidance on integrative psychiatry, ADHD, autism, nutrition, and emotional wellness. MindClaire’s blog offers practical information to support mental health across all ages." />
+                <meta name="keywords" content="" />
+            </Helmet>
+
             <BannerSection image={'/assets/blog_banner.webp'} title={'Blog'} fontSize={'text-[50px]'}
                 className={'bg-[40%]'}
             />

@@ -1,11 +1,18 @@
 import BannerSection from '../components/BannerSection'
 import { Link } from 'react-router-dom';
 import { press_media } from '../components/staticData';
+import { Helmet } from 'react-helmet-async';
 
 
 const PressMedia = () => {
     return (
         <>
+            <Helmet>
+                <title>Mindclaire | Press media</title>
+                <meta name="description" content="Media coverage and press mentions of Dr. Ritu Goel and MindClaire's innovative approach to mental health, including features in Marquis Who’s Who and Forbes Business Council." />
+                <meta name="keywords" content="" />
+            </Helmet>
+
             <BannerSection image={'/assets/edu_banner.webp'} title={'Press & Media'} fontSize={'text-[50px]'}
                 className={'bg-[40%]'}
             />

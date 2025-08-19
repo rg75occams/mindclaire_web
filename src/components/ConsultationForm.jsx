@@ -176,12 +176,6 @@ const ConsultationForm = () => {
                                             Please see our fee structure here.
                                         </Link>
                                     )}
-
-                                    {/* <Link to="#" className={`text-[#0d6efd] underline ml-1 block sm:inline 
-                                        ${formData?.reviewedFees === "no" ? "visible" : "hidden"}`}
-                                    >
-                                        Please see our fee structure here.
-                                    </Link> */}
                                 </span>
                             </label>
                         </div>
@@ -208,8 +202,9 @@ const ConsultationForm = () => {
                             />
                         </div>
 
-                        <button type="submit" className="bg-[#9D4EDD] hover:bg-[#3c0a6d] cursor-pointer text-white 
-                            py-[15px] rounded-full text-base px-7"
+                        <button type="submit" className={`${formData.reviewedFees === "no" ? "bg-[#ccc] cursor-not-allowed" : 
+                            "bg-[#9D4EDD] cursor-pointer"}  hover:bg-[#3c0a6d] text-white 
+                            py-[15px] rounded-full text-base px-7`} disabled={formData.reviewedFees === "no"}
                         >
                             Send
                         </button>

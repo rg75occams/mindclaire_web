@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { HashLink } from 'react-router-hash-link';
 import { publications, slides } from '../components/staticData';
+import { Helmet } from 'react-helmet-async';
 
 const AboutUs = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -31,6 +32,12 @@ const AboutUs = () => {
 
     return (
         <>
+            <Helmet>
+                <title>About MindClaire | Meet Dr. Ritu Goel - Integrative Psychiatrist Long Beach</title>
+                <meta name="description" content=" Mindclaire, Ritu Goel MD. provides holistic healing, traditional psychiatry & AI-driven diagnostics that fosters growth, healing, relief from symptoms & overall wellness" />
+                <meta name="keywords" content="Dr. Ritu Goel, integrative psychiatry expert, child psychiatry, adolescent psychiatry, adult psychiatry, personalized treatment, mental health care, holistic psychiatry, Long Beach, California. "/>
+            </Helmet>
+
             <BannerSection image={'/assets/about_banner.webp'} title={'About'} />
 
             <div className="lg:px-[6rem] sm:px-7 px-5 pt-14">

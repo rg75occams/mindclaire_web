@@ -6,10 +6,17 @@ import AreasOfFocus from "./AreasOfFocus";
 import Featured from "../components/Featured";
 import ApproachSection from "../components/ApproachSection";
 import { approach } from "../components/staticData";
+import { Helmet } from "react-helmet-async";
 
 const HomePage = () => {
     return (
         <Fragment>
+            <Helmet>
+                <title>Holistic Mental Wellness Treatment & Integrative Psychiatric Services Long Beach, CA | Mind Claire</title>
+                <meta name="description" content=" Mindclaire, Ritu Goel MD. provides personalized Mental care, healing &amp; treatment consultation in California for children, teens, young adults, Parents &amp; Guardian" />
+                <meta name="keywords" content="Integrative psychiatry, mental health care, personalized treatment, child psychiatry, adolescent psychiatry, adult psychiatry, Dr. Ritu Goel, anxiety treatment, depression treatment, autism diagnosis, Autism therapy, holistic psychiatry, wellness platform, Long Beach, California. " />
+            </Helmet>
+
             <Banner />
             <Profile />
             <Featured />
@@ -32,7 +39,7 @@ const HomePage = () => {
                         <h2 className="text-4xl md:text-[41px] mb-3 text-white ringift">
                             “Out of your vulnerabilities will come your strength."
                         </h2>
-                        
+
                         <p className="text-2xl text-white mb-3 inter">— Sigmund Freud</p>
                     </div>
                 </div>

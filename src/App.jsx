@@ -22,6 +22,7 @@ import EventsDetails from './components/EventsDetails';
 import './App.css';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import { HelmetProvider } from 'react-helmet-async';
 
 const App = () => {
     const location = useLocation();
@@ -67,27 +68,29 @@ const App = () => {
 
     return (
         <Fragment>
-            {!isNotFoundPage && <Navbar isScrolled={isScrolled} />}
-            <Routes>
-                <Route path='/' element={<HomePage />} />
-                <Route path='/about' element={<AboutUs />} />
-                <Route path='/services' element={<Services />} />
-                <Route path='/blog' element={<Blog />} />
-                <Route path="/blog/:name" element={<BlogDetails />} />
-                <Route path='/press_media' element={<PressMedia />} />
-                <Route path='/press_media/:id' element={<PressMediaDetails />} />
-                <Route path='/resources' element={<Resources />} />
-                <Route path='/events' element={<Events />} />
-                <Route path='/events/:name' element={<EventsDetails />} />
-                <Route path='/faqs' element={<FAQ />} />
-                <Route path='/contact' element={<Contact />} />
-                <Route path='/terms-of-use' element={<TermsOfUse />} />
-                <Route path='/acceptable-use-policy' element={<AcceptablePolicy />} />
-                <Route path='/privacy-policy' element={<PrivacyPolicy />} />
-                <Route path='/medical-disclaimer' element={<MedicalDisclaimer />} />
-                <Route path='*' element={<NotFound />} />
-            </Routes>
-            {!isNotFoundPage && <Footer />}
+            <HelmetProvider>
+                {!isNotFoundPage && <Navbar isScrolled={isScrolled} />}
+                <Routes>
+                    <Route path='/' element={<HomePage />} />
+                    <Route path='/about' element={<AboutUs />} />
+                    <Route path='/services' element={<Services />} />
+                    <Route path='/blog' element={<Blog />} />
+                    <Route path="/blog/:name" element={<BlogDetails />} />
+                    <Route path='/press_media' element={<PressMedia />} />
+                    <Route path='/press_media/:id' element={<PressMediaDetails />} />
+                    <Route path='/resources' element={<Resources />} />
+                    <Route path='/events' element={<Events />} />
+                    <Route path='/events/:name' element={<EventsDetails />} />
+                    <Route path='/faqs' element={<FAQ />} />
+                    <Route path='/contact' element={<Contact />} />
+                    <Route path='/terms-of-use' element={<TermsOfUse />} />
+                    <Route path='/acceptable-use-policy' element={<AcceptablePolicy />} />
+                    <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+                    <Route path='/medical-disclaimer' element={<MedicalDisclaimer />} />
+                    <Route path='*' element={<NotFound />} />
+                </Routes>
+                {!isNotFoundPage && <Footer />}
+            </HelmetProvider>
         </Fragment>
     )
 }

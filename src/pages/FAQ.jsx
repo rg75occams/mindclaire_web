@@ -2,6 +2,7 @@ import { useState } from 'react';
 import BannerSection from '../components/BannerSection'
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import { faqs } from '../components/staticData';
+import { Helmet } from 'react-helmet-async';
 
 const FAQ = () => {
     const [isOpen, setIsOpen] = useState(0);
@@ -12,6 +13,12 @@ const FAQ = () => {
 
     return (
         <>
+            <Helmet>
+                <title>MindClaire Faqs</title>
+                <meta name="description" content="Find quick answers to common questions about our mental wellness services, policies, and support. Explore our FAQ to get the help you need, fast." />
+                <meta name="keywords" content="" />
+            </Helmet>
+
             <BannerSection image={'/assets/faq_banner.png'} title={'FAQ’s'} className={'bg-[95%]'}
                 fontSize={'text-[50px]'}
             />
