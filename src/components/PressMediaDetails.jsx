@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { press_media } from './staticData';
 import { Link } from 'react-router-dom';
 import { useRef, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import PageTitle from './PageTitle';
 
 const PressMediaDetails = () => {
     const { id } = useParams();
@@ -84,11 +84,9 @@ const PressMediaDetails = () => {
 
     return (
         <>
-            <Helmet>
-                <title>MindClaire | Dr. Ritu Goel of MindClaire featured in Forbes: Insights on empowering introverts in the workplace.</title>
-                <meta name="description" content="Learn effective strategies to empower introverts in the workplace, fostering inclusivity and leveraging diverse strengths" />
-                <meta name="keywords" content="" />
-            </Helmet>
+            <PageTitle title="MindClaire | Dr. Ritu Goel of MindClaire featured in Forbes: Insights on empowering introverts in the workplace." keywords=""
+                description="Learn effective strategies to empower introverts in the workplace, fostering inclusivity and leveraging diverse strengths"
+            />
 
             <div className="lg:px-[6rem] sm:px-7 px-5 pt-12">
                 <div className='container mx-auto mt-[70px]'>

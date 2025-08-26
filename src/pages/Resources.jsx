@@ -1,16 +1,14 @@
 import { Link } from 'react-router-dom'
 import BannerSection from '../components/BannerSection'
 import { caregivers, patients, sections } from '../components/staticData'
-import { Helmet } from 'react-helmet-async'
+import PageTitle from '../components/PageTitle'
 
 const Resources = () => {
     return (
         <>
-            <Helmet>
-                <title>Mental Wellness Resources for Parents, Caregivers & Patients | Mindclaire</title>
-                <meta name="description" content="Self-Care Toolkit for Mental Wellness, Medication & Therapy Guide, Mindfulness & Relaxation Techniques, Autism Resources, ADHD Resources, Sleep & Wellness Resources at Mindclaire" />
-                <meta name="keywords" content="" />
-            </Helmet>
+            <PageTitle title="Mental Wellness Resources for Parents, Caregivers & Patients | Mindclaire" keywords=""
+                description="Self-Care Toolkit for Mental Wellness, Medication & Therapy Guide, Mindfulness & Relaxation Techniques, Autism Resources, ADHD Resources, Sleep & Wellness Resources at Mindclaire"
+            />
 
             <BannerSection image={'/assets/resource_banner.webp'} title={'Resource'} fontSize={'text-[50px]'}
                 className={'bg-[70%]'}

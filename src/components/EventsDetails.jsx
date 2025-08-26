@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { events } from "./staticData";
-import { Helmet } from "react-helmet-async";
+import PageTitle from "./PageTitle";
 
 const EventsDetails = () => {
     const { name } = useParams();
@@ -12,11 +12,9 @@ const EventsDetails = () => {
 
     return (
         <>
-            <Helmet>
-                <title> MindClaire | MindClaire Champions Hope & Courage at CHOC Gala 2025.</title>
-                <meta name="description" content="Join MindClaire in supporting the CHOC Gala 2025, celebrating resilience and raising awareness for children's health initiatives." />
-                <meta name="keywords" content="" />
-            </Helmet>
+            <PageTitle title="MindClaire | MindClaire Champions Hope & Courage at CHOC Gala 2025." keywords=""
+                description="Join MindClaire in supporting the CHOC Gala 2025, celebrating resilience and raising awareness for children's health initiatives."
+            />
 
             <div className="lg:px-[6rem] sm:px-7 px-5 pt-12">
                 <div className='container mx-auto mt-[70px]'>

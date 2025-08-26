@@ -1,14 +1,12 @@
-import { Helmet } from "react-helmet-async"
 import { Link } from "react-router-dom"
+import PageTitle from "../components/PageTitle"
 
 const AcceptablePolicy = () => {
     return (
         <>
-            <Helmet>
-                <title>MindClaire | Acceptable Use Policy</title>
-                <meta name="description" content="Review the terms governing your use of MindClaire's services. By accessing our platform, you agree to abide by these terms and conditions." />
-                <meta name="keywords" content="" />
-            </Helmet>
+            <PageTitle title="MindClaire | Acceptable Use Policy" keywords=""
+                description="Review the terms governing your use of MindClaire's services. By accessing our platform, you agree to abide by these terms and conditions."
+            />
 
             <div className="lg:px-[6rem] sm:px-7 px-5 pt-12">
                 <div className='container mx-auto mt-[70px]'>

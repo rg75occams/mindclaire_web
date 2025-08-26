@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { blogs } from "./staticData";
-import { Helmet } from "react-helmet-async";
+import PageTitle from "./PageTitle";
 
 const BlogDetails = () => {
     const { name } = useParams();
@@ -12,11 +12,9 @@ const BlogDetails = () => {
 
     return (
         <>
-            <Helmet>
-                <title>MindClaire | {blog?.title}</title>
-                <meta name="description" content=" Discover MindClaire's integrative approach to psychiatry, combining traditional and alternative therapies for comprehensive mental health treatment." />
-                <meta name="keywords" content="" />
-            </Helmet>
+            <PageTitle title={`MindClaire | ${blog?.title}`} keywords=""
+                description="Discover MindClaire's integrative approach to psychiatry, combining traditional and alternative therapies for comprehensive mental health treatment."
+            />
 
             <div className="lg:px-[6rem] sm:px-7 px-5 pt-12">
                 <div className='container mx-auto mt-[70px]'>

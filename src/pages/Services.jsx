@@ -2,18 +2,17 @@ import ApproachSection from '../components/ApproachSection'
 import BannerSection from '../components/BannerSection'
 import { HashLink } from 'react-router-hash-link';
 import { services, treatment } from '../components/staticData';
-import { Helmet } from 'react-helmet-async';
+import PageTitle from '../components/PageTitle';
 
 const Services = () => {
 
 
     return (
         <>
-            <Helmet>
-                <title>Mental health challenges, diagnosis & Integrative Treatment services Long Beach</title>
-                <meta name="description" content=" Anxiety disorder, ADHD, developmental challenges, depression, sleep disorders, autism spectrum disorder and comorbid Psychiatric Conditions treatment using CBT, IPT & Ayurveda." />
-                <meta name="keywords" content="Integrative psychiatry services, anxiety treatment, depression treatment, autism therapy, child psychiatry, adolescent psychiatry, adult psychiatry, mental health solutions, holistic treatment, Long Beach, CA." />
-            </Helmet>
+            <PageTitle title="Mental health challenges, diagnosis & Integrative Treatment services Long Beach"
+                description="Anxiety disorder, ADHD, developmental challenges, depression, sleep disorders, autism spectrum disorder and comorbid Psychiatric Conditions treatment using CBT, IPT & Ayurveda."
+                keywords="Integrative psychiatry services, anxiety treatment, depression treatment, autism therapy, child psychiatry, adolescent psychiatry, adult psychiatry, mental health solutions, holistic treatment, Long Beach, CA."
+            />
 
             <BannerSection image={'/assets/service_banner.webp'} title={'Services'} fontSize={'text-[50px]'} />
 

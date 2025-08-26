@@ -3,16 +3,14 @@ import BannerSection from '../components/BannerSection'
 import ConsultationForm from '../components/ConsultationForm'
 import { HiOutlineMail } from 'react-icons/hi'
 import { FaFax, FaPhoneAlt } from 'react-icons/fa'
-import { Helmet } from 'react-helmet-async'
+import PageTitle from '../components/PageTitle'
 
 const Contact = () => {
     return (
         <>
-            <Helmet>
-                <title>MindClaire Contact</title>
-                <meta name="description" content="Contact MindClaire for personalized mental health support. Schedule a free 15-minute consultation with Dr. Ritu Goel to discuss treatment goals and explore tailored psychiatric services." />
-                <meta name="keywords" content="" />
-            </Helmet>
+            <PageTitle title="MindClaire Contact" keywords=""
+                description="Contact MindClaire for personalized mental health support. Schedule a free 15-minute consultation with Dr. Ritu Goel to discuss treatment goals and explore tailored psychiatric services."
+            />
 
             <BannerSection image={'/assets/contact_banner.jpg'} title={'Contact'} fontSize={'text-[50px]'}
                 className={'bg-[100%]'}

@@ -1,14 +1,10 @@
-import { Helmet } from 'react-helmet-async'
-import { Link } from 'react-router-dom'
+import PageTitle from "../components/PageTitle"
+
 
 const MedicalDisclaimer = () => {
     return (
         <>
-            <Helmet>
-                <title>Mindclaire | Disclaimer</title>
-                <meta name="description" content="" />
-                <meta name="keywords" content="" />
-            </Helmet>
+            <PageTitle title="Mindclaire | Disclaimer" description="" keywords="" />
 
             <div className="lg:px-[6rem] sm:px-7 px-5 pt-12">
                 <div className='container mx-auto mt-[70px]'>

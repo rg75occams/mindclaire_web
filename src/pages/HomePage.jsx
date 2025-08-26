@@ -6,16 +6,15 @@ import AreasOfFocus from "./AreasOfFocus";
 import Featured from "../components/Featured";
 import ApproachSection from "../components/ApproachSection";
 import { approach } from "../components/staticData";
-import { Helmet } from "react-helmet-async";
+import PageTitle from "../components/PageTitle";
 
 const HomePage = () => {
     return (
         <Fragment>
-            <Helmet>
-                <title>Holistic Mental Wellness Treatment & Integrative Psychiatric Services Long Beach, CA | Mind Claire</title>
-                <meta name="description" content=" Mindclaire, Ritu Goel MD. provides personalized Mental care, healing &amp; treatment consultation in California for children, teens, young adults, Parents &amp; Guardian" />
-                <meta name="keywords" content="Integrative psychiatry, mental health care, personalized treatment, child psychiatry, adolescent psychiatry, adult psychiatry, Dr. Ritu Goel, anxiety treatment, depression treatment, autism diagnosis, Autism therapy, holistic psychiatry, wellness platform, Long Beach, California. " />
-            </Helmet>
+            <PageTitle title="Holistic Mental Wellness Treatment & Integrative Psychiatric Services Long Beach, CA | Mind Claire"
+                description="Mindclaire, Ritu Goel MD. provides personalized Mental care, healing & treatment consultation in California for children, teens, young adults & Parents/ Guardian"
+                keywords="Integrative psychiatry, mental health care, personalized treatment, child psychiatry, adolescent psychiatry, adult psychiatry, Dr. Ritu Goel, anxiety treatment, depression treatment, autism diagnosis, Autism therapy, holistic psychiatry, wellness platform, Long Beach, California."
+            />
 
             <Banner />
             <Profile />

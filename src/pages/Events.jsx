@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import BannerSection from '../components/BannerSection'
 import { events } from '../components/staticData'
-import { Helmet } from 'react-helmet-async';
+import PageTitle from '../components/PageTitle';
 
 const Events = () => {
     const slugify = (text) => {
@@ -10,11 +10,9 @@ const Events = () => {
 
     return (
         <>
-            <Helmet>
-                <title>Mindclaire Events</title>
-                <meta name="description" content="Discover upcoming mental health workshops, retreats, and support groups at MindClaire. Join our events to enhance well-being, build community, and gain valuable insights." />
-                <meta name="keywords" content="" />
-            </Helmet>
+            <PageTitle title="Mindclaire Events" keywords=""
+                description="Discover upcoming mental health workshops, retreats, and support groups at MindClaire. Join our events to enhance well-being, build community, and gain valuable insights."
+            />
 
             <BannerSection image={'/assets/edu_banner.webp'} title={'Events'} fontSize={'text-[50px]'}
                 className={'bg-[40%]'}

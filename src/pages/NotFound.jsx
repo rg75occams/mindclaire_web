@@ -1,12 +1,9 @@
-import { Helmet } from "react-helmet-async";
+import PageTitle from "../components/PageTitle";
 
 const NotFound = () => {
     return (
         <>
-            <Helmet>
-                <title>This Page Does Not Exist</title>
-                <meta name="description" content="Oops, looks like the page is lost." />
-            </Helmet>
+            <PageTitle title="This Page Does Not Exist" description="Oops, looks like the page is lost." keywords="" />
 
             <div className="flex flex-col items-center justify-center min-h-screen bg-[#f4f5ff] px-4 text-center">
                 <div className="relative">

@@ -1,14 +1,12 @@
-import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
+import PageTitle from '../components/PageTitle'
 
 const PrivacyPolicy = () => {
     return (
         <>
-            <Helmet>
-                <title>MindClaire | Privacy Policy</title>
-                <meta name="description" content="Explore MindClaire's commitment to safeguarding your personal information. Understand how we collect, use, and protect your data in compliance with privacy laws." />
-                <meta name="keywords" content="" />
-            </Helmet>
+            <PageTitle title="MindClaire | Privacy Policy" keywords=""
+                description="Explore MindClaire's commitment to safeguarding your personal information. Understand how we collect, use, and protect your data in compliance with privacy laws."
+            />
 
             <div className="lg:px-[6rem] sm:px-7 px-5 pt-12">
                 <div className='container mx-auto mt-[70px]'>
