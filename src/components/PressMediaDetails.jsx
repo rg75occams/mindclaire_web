@@ -8,9 +8,9 @@ import { toast } from "react-toastify";
 
 const PressMediaDetails = () => {
     const { id } = useParams();
+    const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
-        comment: "", website: "",
-        firstName: "", lastName: "", email: "",
+        comment: "", website: "", firstName: "", lastName: "", email: "",
     });
 
     const firstNameRef = useRef();
@@ -77,10 +77,10 @@ const PressMediaDetails = () => {
             websiteRef.current.focus();
             return;
         }
-
+        setLoading(true);
         const templateParams = {
             firstName: formData.firstName, lastName: formData.lastName,
-            email: formData.email,  comment: formData.comment, website: formData.website,
+            email: formData.email, comment: formData.comment, website: formData.website,
         };
 
         try {
@@ -91,12 +91,14 @@ const PressMediaDetails = () => {
             if (response.status === 200) {
                 setFormData({
                     firstName: "", lastName: "", email: "", comment: "",
-                    website: "", 
+                    website: "",
                 });
                 toast.success("Consultation Request Sent");
             }
         } catch (error) {
             toast.error("Somthing Went Wrong");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -172,7 +174,21 @@ const PressMediaDetails = () => {
                                 <button type="submit" className="bg-[#9D4EDD] hover:bg-[#3c0a6d] text-white 
                                     py-[15px] rounded-full text-base px-7 cursor-pointer"
                                 >
-                                    Send
+                                    {loading ? (
+                                        <div className="flex items-center gap-2.5">
+                                            <svg className="w-7 h-7 animate-spin text-white" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                            >
+                                                <circle className="opacity-25" cx="12" cy="12" r="10"
+                                                    stroke="currentColor" strokeWidth="3"
+                                                />
+                                                <path className="opacity-75" fill="none" stroke="currentColor"
+                                                    strokeLinecap="round" strokeWidth="3" d="M22 12a10 10 0 01-10 10"
+                                                />
+                                            </svg>
+                                            <span className="text-white">Sending...</span>
+                                        </div>
+                                    ) : "Send"}
                                 </button>
                             </form>
                         </div>

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { Fragment, useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 
 const ConsultationForm = () => {
     const [recaptchaToken, setRecaptchaToken] = useState("");
+    const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         firstName: "", lastName: "", email: "", acknowledge: false,
         phone: "", problem: "", reviewedFees: "yes",
@@ -84,6 +85,7 @@ const ConsultationForm = () => {
             return;
         }
 
+        setLoading(true);
         const templateParams = {
             firstName: formData.firstName,
             lastName: formData.lastName,
@@ -111,6 +113,8 @@ const ConsultationForm = () => {
             }
         } catch (error) {
             toast.error("Somthing Went Wrong");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -222,7 +226,7 @@ const ConsultationForm = () => {
                         <div className="flex">
                             <ReCAPTCHA sitekey="6LeBKcIrAAAAABaPu8rAcU3YG6wyHFyQ-GktdjUl"
                                 onChange={(token) => setRecaptchaToken(token)} ref={recaptchaRef}
-                            // size="invisible"
+                                // size="invisible"
                             />
                         </div>
 
@@ -230,7 +234,21 @@ const ConsultationForm = () => {
                             "bg-[#9D4EDD] cursor-pointer"}  hover:bg-[#3c0a6d] text-white 
                             py-[15px] rounded-full text-base px-7`} disabled={formData.reviewedFees === "no"}
                         >
-                            Send
+                            {loading ? (
+                                <div className="flex items-center gap-2.5">
+                                    <svg className="w-7 h-7 animate-spin text-white" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    >
+                                        <circle className="opacity-25" cx="12" cy="12" r="10"
+                                            stroke="currentColor" strokeWidth="3"
+                                        />
+                                        <path className="opacity-75" fill="none" stroke="currentColor"
+                                            strokeLinecap="round" strokeWidth="3" d="M22 12a10 10 0 01-10 10"
+                                        />
+                                    </svg>
+                                    <span className="text-white">Sending...</span>
+                                </div>
+                            ) : "Send"}
                         </button>
                     </form>
                 </div>
