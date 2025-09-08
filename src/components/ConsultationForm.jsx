@@ -221,7 +221,8 @@ const ConsultationForm = () => {
 
                         <div className="flex">
                             <ReCAPTCHA sitekey="6LeBKcIrAAAAABaPu8rAcU3YG6wyHFyQ-GktdjUl"
-                                onChange={(token) => setRecaptchaToken(token)} size="normal" ref={recaptchaRef}
+                                onChange={(token) => setRecaptchaToken(token)} ref={recaptchaRef}
+                            // size="invisible"
                             />
                         </div>
 
