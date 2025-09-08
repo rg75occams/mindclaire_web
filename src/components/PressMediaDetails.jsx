@@ -3,6 +3,8 @@ import { press_media } from './staticData';
 import { Link } from 'react-router-dom';
 import { useRef, useState } from 'react';
 import PageTitle from './PageTitle';
+import emailjs from "@emailjs/browser";
+import { toast } from "react-toastify";
 
 const PressMediaDetails = () => {
     const { id } = useParams();
@@ -76,8 +78,26 @@ const PressMediaDetails = () => {
             return;
         }
 
-        const postData = { ...formData };
-        console.log(postData);
+        const templateParams = {
+            firstName: formData.firstName, lastName: formData.lastName,
+            email: formData.email,  comment: formData.comment, website: formData.website,
+        };
+
+        try {
+            const response = await emailjs.send(
+                "service_r1g5puu", "template_vvk4f26", templateParams, "2EjYyADHH1E7k5FjG",
+            );
+
+            if (response.status === 200) {
+                setFormData({
+                    firstName: "", lastName: "", email: "", comment: "",
+                    website: "", 
+                });
+                toast.success("Consultation Request Sent");
+            }
+        } catch (error) {
+            toast.error("Somthing Went Wrong");
+        }
     };
 
     const singleMedia = press_media.find((media) => media?.id == id)
@@ -114,43 +134,43 @@ const PressMediaDetails = () => {
                             <form onSubmit={handleSubmit} className="space-y-4 inter">
                                 <textarea name="comment" value={formData.comment} onChange={handleChange}
                                     ref={commentRef} placeholder="Comment*" className="w-full block md:px-[25px] px-4 
-                                md:pt-5 pt-3 pb-2.5 sm:text-base text-sm font-normal h-28 text-black bg-white 
-                                border border-[#ced4da] rounded-[30px] focus:border-[#86b7fe] transition 
-                                duration-150 ease-in-out focus:outline-none focus:ring-4 focus:ring-[#0d6efd40]"
+                                    md:pt-5 pt-3 pb-2.5 sm:text-base text-sm font-normal h-28 text-black bg-white 
+                                    border border-[#ced4da] rounded-[30px] focus:border-[#86b7fe] transition 
+                                    duration-150 ease-in-out focus:outline-none focus:ring-4 focus:ring-[#0d6efd40]"
                                 />
 
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <input type="text" name="firstName" placeholder="First name*"
                                         value={formData.firstName} onChange={handleChange} ref={firstNameRef}
                                         className="w-full block px-[25px] py-3.5 text-base font-normal leading-0.5 transition
-                                    text-black bg-white border border-[#ced4da] focus:border-[#86b7fe] focus:ring-4
-                                    duration-150 ease-in-out focus:outline-none focus:ring-[#0d6efd40] rounded-full"
+                                        text-black bg-white border border-[#ced4da] focus:border-[#86b7fe] focus:ring-4
+                                        duration-150 ease-in-out focus:outline-none focus:ring-[#0d6efd40] rounded-full"
                                     />
 
                                     <input type="text" name="lastName" placeholder="Last name*"
                                         value={formData.lastName} onChange={handleChange} ref={lastNameRef}
                                         className="w-full block px-[25px] py-3.5 text-base font-normal leading-0.5 transition
-                                    text-black bg-white border border-[#ced4da] focus:border-[#86b7fe] focus:ring-4
-                                    duration-150 ease-in-out focus:outline-none focus:ring-[#0d6efd40] rounded-full"
+                                        text-black bg-white border border-[#ced4da] focus:border-[#86b7fe] focus:ring-4
+                                        duration-150 ease-in-out focus:outline-none focus:ring-[#0d6efd40] rounded-full"
                                     />
 
                                     <input type="email" name="email" placeholder="Email*"
                                         value={formData.email} onChange={handleChange} ref={emailRef}
                                         className="w-full block px-[25px] py-3.5 text-base font-normal leading-0.5 transition
-                                    text-black bg-white border border-[#ced4da] focus:border-[#86b7fe] focus:ring-4
-                                    duration-150 ease-in-out focus:outline-none focus:ring-[#0d6efd40] rounded-full"
+                                        text-black bg-white border border-[#ced4da] focus:border-[#86b7fe] focus:ring-4
+                                        duration-150 ease-in-out focus:outline-none focus:ring-[#0d6efd40] rounded-full"
                                     />
 
                                     <input type="text" name="website" placeholder="Website*" value={formData.website}
                                         ref={websiteRef} onChange={handleChange} className="w-full block px-[25px] py-3.5 
-                                    text-base font-normal leading-0.5 text-black bg-white border border-[#ced4da] 
-                                    rounded-full focus:border-[#86b7fe] transition duration-150 ease-in-out 
-                                    focus:outline-none focus:ring-4 focus:ring-[#0d6efd40]"
+                                        text-base font-normal leading-0.5 text-black bg-white border border-[#ced4da] 
+                                        rounded-full focus:border-[#86b7fe] transition duration-150 ease-in-out 
+                                        focus:outline-none focus:ring-4 focus:ring-[#0d6efd40]"
                                     />
                                 </div>
 
                                 <button type="submit" className="bg-[#9D4EDD] hover:bg-[#3c0a6d] text-white 
-                                py-[15px] rounded-full text-base px-7 cursor-pointer"
+                                    py-[15px] rounded-full text-base px-7 cursor-pointer"
                                 >
                                     Send
                                 </button>
@@ -162,7 +182,7 @@ const PressMediaDetails = () => {
                                 <h1 className="text-[26px] text-[#3c0a6d] mb-4 inter_medium">Recent Posts</h1>
                                 {press_media?.filter((media) => media?.title !== id)?.map((media, index) => (
                                     <Link key={index} to={`/press_media/${media?.id}`} className='gap-2
-                                    flex inter_medium hover:text-[#0a58ca] items-center inter text-[#3c0a6d]'
+                                        flex inter_medium hover:text-[#0a58ca] items-center inter text-[#3c0a6d]'
                                     >
                                         <p className='sm:text-lg text-sm font-normal'>{media?.title}</p>
                                     </Link>

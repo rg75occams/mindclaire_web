@@ -23,6 +23,8 @@ import './App.css';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { HelmetProvider } from 'react-helmet-async';
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
     const location = useLocation();
@@ -90,6 +92,10 @@ const App = () => {
                     <Route path='*' element={<NotFound />} />
                 </Routes>
                 {!isNotFoundPage && <Footer />}
+                <ToastContainer position="top-right" autoClose={5000}
+                    hideProgressBar={false} newestOnTop={false} pauseOnHover
+                    closeOnClick rtl={false} pauseOnFocusLoss draggable
+                />
             </HelmetProvider>
         </Fragment>
     )

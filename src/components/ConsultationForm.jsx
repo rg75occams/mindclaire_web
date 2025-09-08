@@ -1,8 +1,11 @@
 import { useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Link } from "react-router-dom";
+import emailjs from "@emailjs/browser";
+import { toast } from "react-toastify";
 
 const ConsultationForm = () => {
+    const [recaptchaToken, setRecaptchaToken] = useState("");
     const [formData, setFormData] = useState({
         firstName: "", lastName: "", email: "", acknowledge: false,
         phone: "", problem: "", reviewedFees: "yes",
@@ -80,15 +83,35 @@ const ConsultationForm = () => {
             alert("You must acknowledge the terms.");
             return;
         }
-        const token = await recaptchaRef.current.executeAsync();
-        recaptchaRef.current.reset();
 
-        const postData = {
-            ...formData,
-            "g-recaptcha-response": token,
+        const templateParams = {
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            email: formData.email,
+            phone: formData.phone,
+            problem: formData.problem,
+            reviewedFees: formData.reviewedFees,
+            acknowledge: formData.acknowledge ? "Yes" : "No",
+            recaptcha: recaptchaToken,
         };
 
-        console.log(postData);
+        try {
+            const response = await emailjs.send(
+                "service_r1g5puu", "template_vvk4f26", templateParams, "2EjYyADHH1E7k5FjG",
+            );
+
+            if (response.status === 200) {
+                setFormData({
+                    firstName: "", lastName: "", email: "", phone: "",
+                    problem: "", acknowledge: false, reviewedFees: "yes",
+                });
+                recaptchaRef.current.reset();
+                setRecaptchaToken("");
+                toast.success("Consultation Request Sent");
+            }
+        } catch (error) {
+            toast.error("Somthing Went Wrong");
+        }
     };
 
     return (
@@ -197,12 +220,12 @@ const ConsultationForm = () => {
                         </div>
 
                         <div className="flex">
-                            <ReCAPTCHA sitekey="6Leb7wErAAAAAAb8BewzAqgfyODCoTTy712uOOw3"
-                                size="normal" ref={recaptchaRef}
+                            <ReCAPTCHA sitekey="6LeBKcIrAAAAABaPu8rAcU3YG6wyHFyQ-GktdjUl"
+                                onChange={(token) => setRecaptchaToken(token)} size="normal" ref={recaptchaRef}
                             />
                         </div>
 
-                        <button type="submit" className={`${formData.reviewedFees === "no" ? "bg-[#ccc] cursor-not-allowed" : 
+                        <button type="submit" className={`${formData.reviewedFees === "no" ? "bg-[#ccc] cursor-not-allowed" :
                             "bg-[#9D4EDD] cursor-pointer"}  hover:bg-[#3c0a6d] text-white 
                             py-[15px] rounded-full text-base px-7`} disabled={formData.reviewedFees === "no"}
                         >
