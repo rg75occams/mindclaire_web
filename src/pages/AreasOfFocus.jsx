@@ -1,4 +1,4 @@
-import { HashLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 import { focusAreas } from "../components/staticData";
 
 const AreasOfFocus = () => {
@@ -37,16 +37,16 @@ const AreasOfFocus = () => {
                         Start your transformative journey with MindClaire today
                     </h5>
 
-                    <HashLink smooth to="/services#serv-appont">
+                    <Link target="_blanks" to={`${window.location.origin}/services#serv-appont`}>
                         <button className="bg-[#9D4EDD] hover:bg-[#3c0a6d] py-[15px] rounded-full text-base 
                             px-7 w-max inter cursor-pointer text-white"
                         >
                             Learn More
                         </button>
-                    </HashLink>
+                    </Link>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

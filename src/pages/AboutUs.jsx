@@ -1,17 +1,28 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import BannerSection from '../components/BannerSection';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { HashLink } from 'react-router-hash-link';
 import { publications, slides } from '../components/staticData';
 import PageTitle from '../components/PageTitle';
 
 const AboutUs = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const sliderRef = useRef(null);
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.hash) {
+            const element = document.querySelector(location.hash);
+            if (element) {
+                setTimeout(() => {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }, 300);
+            }
+        }
+    }, [location]);
 
     const credentials = [
         "MD, Doctor Bhimrao Ambedkar University, India",
@@ -258,13 +269,13 @@ const AboutUs = () => {
                                 Explore more about my practice and how we can work together for your mental well-being
                             </h2>
 
-                            <HashLink smooth to='/services#serv-appont'>
+                            <Link target="_blanks" to={`${window.location.origin}/services#serv-appont`}>
                                 <button className='py-3.5 px-6 inter_medium rounded-[30px] text-black bg-white 
                                     hover:!text-[#0a58ca] cursor-pointer'
                                 >
                                     Learn More About My Approach
                                 </button>
-                            </HashLink>
+                            </Link>
                         </div>
                     </div>
 

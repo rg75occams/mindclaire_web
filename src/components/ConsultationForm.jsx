@@ -1,8 +1,8 @@
-import { Fragment, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const ConsultationForm = () => {
     const [recaptchaToken, setRecaptchaToken] = useState("");
@@ -199,7 +199,9 @@ const ConsultationForm = () => {
                                     seek out a different psychiatrist and not be contacted.
 
                                     {formData?.reviewedFees === "no" && (
-                                        <Link to="#" className="text-[#0d6efd] underline ml-1 block sm:inline">
+                                        <Link target="_blanks" to={`${window.location.origin}/services#serv-appont`}
+                                            className="text-[#0d6efd] underline ml-1 block sm:inline"
+                                        >
                                             Please see our fee structure here.
                                         </Link>
                                     )}
@@ -226,7 +228,7 @@ const ConsultationForm = () => {
                         <div className="flex">
                             <ReCAPTCHA sitekey="6LeBKcIrAAAAABaPu8rAcU3YG6wyHFyQ-GktdjUl"
                                 onChange={(token) => setRecaptchaToken(token)} ref={recaptchaRef}
-                                // size="invisible"
+                                size="invisible"
                             />
                         </div>
 

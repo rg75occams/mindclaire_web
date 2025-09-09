@@ -1,4 +1,4 @@
-import { HashLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
     return (
@@ -32,13 +32,13 @@ const Profile = () => {
                                 medications, supplementation, meditation,spiritual guidance through yoga and more.
                             </p>
 
-                            <HashLink smooth to="/about#ritu-bio">
+                            <Link target="_blanks" to={`${window.location.origin}/about#ritu-bio`}>
                                 <button className="bg-[#9D4EDD] hover:bg-[#3c0a6d] cursor-pointer text-white 
                                     pt-[15px] pb-[15px] rounded-full text-base px-7 w-max lg:mt-1 mt-5 inter"
                                 >
                                     Read More
                                 </button>
-                            </HashLink>
+                            </Link>
                         </div>
                     </div>
                 </div>
