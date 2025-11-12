@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { useRef, useState } from 'react';
 import PageTitle from './PageTitle';
 import emailjs from "@emailjs/browser";
-import { toast } from "react-toastify";
 
 const PressMediaDetails = () => {
     const { id } = useParams();
@@ -93,10 +92,11 @@ const PressMediaDetails = () => {
                     firstName: "", lastName: "", email: "", comment: "",
                     website: "",
                 });
-                toast.success("Consultation Request Sent");
+                // toast.success("Consultation Request Sent");
             }
         } catch (error) {
-            toast.error("Somthing Went Wrong");
+            console.log('error: ', error);
+            // toast.error("Somthing Went Wrong");
         } finally {
             setLoading(false);
         }

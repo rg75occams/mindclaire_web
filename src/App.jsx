@@ -6,6 +6,8 @@ import Footer from './components/Footer';
 import AboutUs from './pages/AboutUs';
 import Services from './pages/Services';
 import FAQ from './pages/FAQ';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
 import Blog from './pages/Blog';
 import PressMedia from './pages/PressMedia';
 import Events from './pages/Events';
@@ -23,15 +25,17 @@ import './App.css';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { HelmetProvider } from 'react-helmet-async';
-import { ToastContainer } from 'react-toastify';
-import "react-toastify/dist/ReactToastify.css";
+import { Provider } from 'react-redux';
+import { PersistGate } from "redux-persist/integration/react";
+import store, { persistor } from './features/store';
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
     const location = useLocation();
     const [isScrolled, setIsScrolled] = useState(false);
 
     const allRoutes = [
-        '/', '/about', '/services', '/blog', '/press_media',
+        '/', '/about', '/services', '/blog', '/press_media', '/login', '/sign-up',
         '/resources', '/events', '/faqs', '/contact', '/terms-of-use',
         '/acceptable-use-policy', '/privacy-policy', '/medical-disclaimer',
     ];
@@ -70,33 +74,40 @@ const App = () => {
 
     return (
         <Fragment>
-            <HelmetProvider>
-                {!isNotFoundPage && <Navbar isScrolled={isScrolled} />}
-                <Routes>
-                    <Route path='/' element={<HomePage />} />
-                    <Route path='/about' element={<AboutUs />} />
-                    <Route path='/services' element={<Services />} />
-                    <Route path='/blog' element={<Blog />} />
-                    <Route path="/blog/:name" element={<BlogDetails />} />
-                    <Route path='/press_media' element={<PressMedia />} />
-                    <Route path='/press_media/:id' element={<PressMediaDetails />} />
-                    <Route path='/resources' element={<Resources />} />
-                    <Route path='/events' element={<Events />} />
-                    <Route path='/events/:name' element={<EventsDetails />} />
-                    <Route path='/faqs' element={<FAQ />} />
-                    <Route path='/contact' element={<Contact />} />
-                    <Route path='/terms-of-use' element={<TermsOfUse />} />
-                    <Route path='/acceptable-use-policy' element={<AcceptablePolicy />} />
-                    <Route path='/privacy-policy' element={<PrivacyPolicy />} />
-                    <Route path='/medical-disclaimer' element={<MedicalDisclaimer />} />
-                    <Route path='*' element={<NotFound />} />
-                </Routes>
-                {!isNotFoundPage && <Footer />}
-                <ToastContainer position="top-right" autoClose={5000}
-                    hideProgressBar={false} newestOnTop={false} pauseOnHover
-                    closeOnClick rtl={false} pauseOnFocusLoss draggable
-                />
-            </HelmetProvider>
+            <Provider store={store}>
+                <PersistGate loading={null} persistor={persistor}>
+                    <HelmetProvider>
+                        {!isNotFoundPage && <Navbar isScrolled={isScrolled} />}
+                        <Routes>
+                            <Route path='/' element={<HomePage />} />
+                            <Route path='/about' element={<AboutUs />} />
+                            <Route path='/services' element={<Services />} />
+                            <Route path='/blog' element={<Blog />} />
+                            <Route path="/blog/:name" element={<BlogDetails />} />
+                            <Route path='/press_media' element={<PressMedia />} />
+                            <Route path='/press_media/:id' element={<PressMediaDetails />} />
+                            <Route path='/resources' element={<Resources />} />
+                            <Route path='/events' element={<Events />} />
+                            <Route path='/events/:name' element={<EventsDetails />} />
+                            <Route path='/faqs' element={<FAQ />} />
+                            <Route path='/login' element={<Login />} />
+                            <Route path='/sign-up' element={<SignUp />} />
+                            <Route path='/contact' element={<Contact />} />
+                            <Route path='/terms-of-use' element={<TermsOfUse />} />
+                            <Route path='/acceptable-use-policy' element={<AcceptablePolicy />} />
+                            <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+                            <Route path='/medical-disclaimer' element={<MedicalDisclaimer />} />
+                            <Route path='*' element={<NotFound />} />
+                        </Routes>
+                        {!isNotFoundPage && <Footer />}
+                    </HelmetProvider>
+                </PersistGate>
+            </Provider>
+
+            <Toaster position="top-right" toastOptions={{
+                success: { style: { background: "green", color: "white" } },
+                error: { style: { background: "red", color: "white" } },
+            }} />
         </Fragment>
     )
 }

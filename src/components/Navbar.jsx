@@ -57,7 +57,7 @@ const Navbar = ({ isScrolled }) => {
                         </div>
 
                         <div data-aos="zoom-in-up">
-                            <div className={`md:flex items-center lg:gap-10 md:gap-5 gap-10 md:text-lg text-base
+                            <div className={`md:flex items-center xl:gap-10 lg:gap-6 md:gap-4 gap-8 md:text-lg text-base
                                 hidden ${isScrolled ? 'text-[#8a2be2] px-4' : isHome ? 'text-white' : 'text-black'}`}
                             >
                                 {nav_menu?.filter((nav) => !(nav.path === '/' && path === '/')).map((nav, index) => (
@@ -96,7 +96,7 @@ const Navbar = ({ isScrolled }) => {
                                             </div>
                                         ) : (
                                             <Link to={nav?.path} className={`${isScrolled ? '' : 'hover:text-[#0a58ca]'} 
-                                                ${path === nav?.path ? 'font-bold' : ''}`}
+                                                    ${path === nav?.path ? 'font-bold' : ''}`}
                                             >
                                                 {nav?.label}
                                             </Link>
@@ -104,10 +104,16 @@ const Navbar = ({ isScrolled }) => {
                                     </div>
                                 ))}
 
-                                <Link to='/contact' className="bg-[#9D4EDD] hover:bg-[#3c0a6d] text-white px-7 
-                                    py-[15px] rounded-full text-base inter cursor-pointer"
+                                <Link to='/contact' className={`${isScrolled ? '' : 'hover:text-[#0a58ca]'} 
+                                    ${path === '/contact' ? 'font-bold' : ''} hidden lg:block`}
                                 >
                                     Contact
+                                </Link>
+
+                                <Link to='/login' className="bg-[#9D4EDD] hover:bg-[#3c0a6d] text-white px-7 
+                                    py-[15px] rounded-full text-base inter cursor-pointer"
+                                >
+                                    Login
                                 </Link>
                             </div>
                         </div>
@@ -178,13 +184,22 @@ const Navbar = ({ isScrolled }) => {
                                     <div className="border-b border-gray-200 pt-[10px]" />
                                 </div>
                             ))}
-
                         </ul>
 
-                        <Link to='/contact' className="w-full bg-[#9D4EDD] px-6 py-[15px] text-base text-white 
+                        <ul className="flex-grow mt-2">
+                            <Link to='/contact' className={`block ${path === '/contact' ? 'font-bold' : ''}`}
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                Contact
+                            </Link>
+
+                            <div className="border-b border-gray-200 pt-[10px]" />
+                        </ul>
+
+                        <Link to='/login' className="w-full bg-[#9D4EDD] px-6 py-[15px] text-base text-white 
                             rounded-full cursor-pointer text-start inter mt-3"
                         >
-                            Contact
+                            Login
                         </Link>
                     </div>
                 </div>

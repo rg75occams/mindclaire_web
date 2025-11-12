@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import emailjs from "@emailjs/browser";
-import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 
 const ConsultationForm = () => {
@@ -109,10 +108,11 @@ const ConsultationForm = () => {
                 });
                 recaptchaRef.current.reset();
                 setRecaptchaToken("");
-                toast.success("Consultation Request Sent");
+                // toast.success("Consultation Request Sent");
             }
         } catch (error) {
-            toast.error("Somthing Went Wrong");
+            console.log('error: ', error);
+            // toast.error("Somthing Went Wrong");
         } finally {
             setLoading(false);
         }
